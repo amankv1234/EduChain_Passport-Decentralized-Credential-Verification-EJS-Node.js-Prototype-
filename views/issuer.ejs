@@ -1,40 +1,87 @@
 <%- include('partials/header') %>
 
-<h2>Issuer Portal</h2>
-
-<% if (message) { %>
-  <div class="alert alert-info"><%= message %></div>
-<% } %>
-
-<form method="POST" action="/issuer/issue" class="row g-3">
-  <div class="col-md-4">
-    <label class="form-label">Student ID</label>
-    <input type="text" name="studentId" class="form-control" placeholder="e.g., STU1001" required>
+<!-- Page Header -->
+<div class="py-4 mb-4 text-white shadow" style="background: linear-gradient(135deg, #283e51, #4b79a1);">
+  <div class="container">
+    <h2 class="fw-bold mb-0"><i class="bi bi-building-lock"></i> Issuer Portal</h2>
+    <p class="mb-0 text-light">Issue new verifiable credentials to students</p>
   </div>
+</div>
 
-  <div class="col-md-4">
-    <label class="form-label">Credential Title</label>
-    <input type="text" name="title" class="form-control" placeholder="e.g., B.Tech in CSE" required>
-  </div>
+<div class="container mb-5">
 
-  <div class="col-md-4">
-    <label class="form-label">Issuer Name</label>
-    <input type="text" name="issuerName" class="form-control" placeholder="e.g., Rajkiya Engineering College" required>
-  </div>
+  <% if (message) { %>
+    <div class="alert alert-success shadow-sm"><%= message %></div>
+  <% } %>
 
-  <div class="col-md-4">
-    <label class="form-label">Issued On</label>
-    <input type="date" name="issuedOn" class="form-control">
-  </div>
+  <div class="card shadow-lg border-0 glass-card">
+    <div class="card-body p-4">
 
-  <div class="col-md-4">
-    <label class="form-label">Valid Till</label>
-    <input type="text" name="validTill" class="form-control" placeholder="e.g., Lifetime or 2025-12-01">
-  </div>
+      <h4 class="fw-bold mb-3 text-primary">
+        <i class="bi bi-file-earmark-plus"></i> Issue Credential
+      </h4>
 
-  <div class="col-12 mt-2">
-    <button class="btn btn-primary">Issue Credential</button>
+      <form method="POST" action="/issuer/issue" class="row g-4">
+
+        <!-- Student ID -->
+        <div class="col-md-4">
+          <label class="form-label fw-semibold">Student ID</label>
+          <input type="text" name="studentId" class="form-control form-control-lg input-focus"
+            placeholder="e.g., STU1001" required>
+        </div>
+
+        <!-- Credential Title -->
+        <div class="col-md-4">
+          <label class="form-label fw-semibold">Credential Title</label>
+          <input type="text" name="title" class="form-control form-control-lg input-focus"
+            placeholder="e.g., B.Tech in CSE" required>
+        </div>
+
+        <!-- Issuer Name -->
+        <div class="col-md-4">
+          <label class="form-label fw-semibold">Issuer Name</label>
+          <input type="text" name="issuerName" class="form-control form-control-lg input-focus"
+            placeholder="e.g., Rajkiya Engineering College" required>
+        </div>
+
+        <!-- Issued On -->
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Issued On</label>
+          <input type="date" name="issuedOn" class="form-control form-control-lg input-focus">
+        </div>
+
+        <!-- Valid Till -->
+        <div class="col-md-6">
+          <label class="form-label fw-semibold">Valid Till</label>
+          <input type="text" name="validTill" class="form-control form-control-lg input-focus"
+            placeholder="e.g., Lifetime or 2025-12-01">
+        </div>
+
+        <!-- Submit Button -->
+        <div class="col-12 mt-3 text-center">
+          <button class="btn btn-primary btn-lg px-5 shadow">
+            <i class="bi bi-arrow-right-circle"></i> Issue Credential
+          </button>
+        </div>
+
+      </form>
+
+    </div>
   </div>
-</form>
+</div>
+
+<!-- Custom Styles -->
+<style>
+  .glass-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+  }
+
+  .input-focus:focus {
+    border-color: #4b79a1;
+    box-shadow: 0 0 0 0.25rem rgba(75, 121, 161, 0.25);
+  }
+</style>
 
 <%- include('partials/footer') %>

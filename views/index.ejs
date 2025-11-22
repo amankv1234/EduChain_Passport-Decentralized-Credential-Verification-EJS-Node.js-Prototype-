@@ -1,31 +1,111 @@
 <%- include('partials/header') %>
 
-<div class="row">
-  <div class="col-md-8">
-    <h1>Welcome to EduChain Passport</h1>
-    <p class="lead">Decentralized & privacy-preserving credential verification prototype.</p>
-
-    <h5>Quick actions</h5>
-    <ul>
-      <li><a href="/issuer">Issuer Portal</a> — Issue new credentials (demo)</li>
-      <li><a href="/wallet">Student Wallet</a> — View credentials</li>
-      <li><a href="/verify">Verifier</a> — Verify credential hash</li>
-    </ul>
-
-    <hr>
-    <h5>How this prototype works (simple)</h5>
-    <ol>
-      <li>Issuer issues credential → server creates credential record + hash (simulated blockchain)</li>
-      <li>Student views wallet → sees issued credentials</li>
-      <li>Employer verifies by entering hash → server checks simulated chain</li>
-    </ol>
+<!-- Hero Section -->
+<div class="p-5 mb-4 bg-light rounded-3 shadow-sm" style="background: linear-gradient(135deg, #4b79a1, #283e51); color: white;">
+  <div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold">EduChain Passport</h1>
+    <p class="col-md-8 fs-5 mt-3">
+      A decentralized & privacy-preserving platform for issuing, storing, and verifying academic credentials.
+      Built using Web3-inspired design and modern cryptographic concepts.
+    </p>
+    <a href="/wallet" class="btn btn-warning btn-lg px-4 mt-3 fw-bold shadow">View Student Wallet</a>
   </div>
-  <div class="col-md-4">
-    <div class="card p-3">
-      <h6>Pro tip for demo</h6>
-      <p>After issuing a credential note down the hash and paste it into Verify page to demo verification.</p>
+</div>
+
+<!-- Quick Actions Section -->
+<div class="container my-5">
+  <h2 class="text-center mb-4 fw-bold">Quick Actions</h2>
+
+  <div class="row g-4">
+    <!-- Issuer Portal -->
+    <div class="col-md-4">
+      <a href="/issuer" class="text-decoration-none text-dark">
+        <div class="card h-100 shadow action-card hover-up">
+          <div class="card-body text-center">
+            <i class="bi bi-building-lock" style="font-size: 40px; color: #0d6efd;"></i>
+            <h4 class="mt-3">Issuer Portal</h4>
+            <p>Issue new tamper-proof credentials to students.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Student Wallet -->
+    <div class="col-md-4">
+      <a href="/wallet" class="text-decoration-none text-dark">
+        <div class="card h-100 shadow action-card hover-up">
+          <div class="card-body text-center">
+            <i class="bi bi-wallet2" style="font-size: 40px; color: #198754;"></i>
+            <h4 class="mt-3">Student Wallet</h4>
+            <p>View all issued credentials stored in your digital identity wallet.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- Verifier Portal -->
+    <div class="col-md-4">
+      <a href="/verify" class="text-decoration-none text-dark">
+        <div class="card h-100 shadow action-card hover-up">
+          <div class="card-body text-center">
+            <i class="bi bi-shield-check" style="font-size: 40px; color: #dc3545;"></i>
+            <h4 class="mt-3">Verifier</h4>
+            <p>Verify credentials using cryptographic hash lookup.</p>
+          </div>
+        </div>
+      </a>
     </div>
   </div>
 </div>
+
+<!-- How It Works Section -->
+<div class="container my-5">
+  <h2 class="text-center mb-4 fw-bold">How EduChain Passport Works</h2>
+
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <ol class="fs-5 list-group list-group-numbered shadow rounded">
+        <li class="list-group-item py-3">
+          <strong>Issuer issues credential</strong> → system generates a cryptographic hash stored inside a simulated blockchain.
+        </li>
+        <li class="list-group-item py-3">
+          <strong>Student opens Wallet</strong> → sees all credentials with issuer, validity, and hash.
+        </li>
+        <li class="list-group-item py-3">
+          <strong>Employer/Verifier checks credential</strong> → enters hash and receives a Verified/Not Verified result.
+        </li>
+        <li class="list-group-item py-3">
+          <strong>ZKP demo</strong> → selective disclosure without revealing sensitive details.
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- Demo Tip Card -->
+<div class="container my-5">
+  <div class="card shadow-lg border-0">
+    <div class="card-body p-4">
+      <h5 class="fw-bold"><i class="bi bi-lightbulb"></i> Pro Tip for Live Demo</h5>
+      <p class="mt-2">
+        After issuing a credential, copy the generated hash and paste it into the Verifier page
+        to demonstrate the authenticity check.
+      </p>
+      <p class="mb-0 text-muted">
+        This showcases tamper-proof verification, just like modern blockchain-based systems.
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .hover-up {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .hover-up:hover {
+    transform: translateY(-6px);
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.15);
+  }
+</style>
 
 <%- include('partials/footer') %>

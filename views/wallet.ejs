@@ -1,26 +1,107 @@
 <%- include('partials/header') %>
 
-<h2>Student Wallet</h2>
-<p>All credentials (demo list from simulated chain)</p>
+<!-- Header Section -->
+<div class="py-4 mb-4 text-white shadow" style="background: linear-gradient(135deg, #5f2c82, #49a09d);">
+  <div class="container">
+    <h2 class="fw-bold mb-0"><i class="bi bi-wallet2"></i> Student Wallet</h2>
+    <p class="mb-0 text-light">Your verified academic credentials stored securely</p>
+  </div>
+</div>
 
-<% if (credentials && credentials.length > 0) { %>
-  <div class="row">
-    <% credentials.forEach(function(c) { %>
-      <div class="col-md-6">
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title"><%= c.credential.title %></h5>
-            <p class="card-text"><strong>Issuer:</strong> <%= c.credential.issuer %></p>
-            <p class="card-text"><strong>Issued On:</strong> <%= c.credential.issuedOn %></p>
-            <p class="card-text"><strong>Valid Till:</strong> <%= c.credential.validTill %></p>
-            <p class="card-text"><small class="text-muted">Hash: <code style="word-break: break-word;"><%= c.hash %></code></small></p>
+<div class="container mb-5">
+
+  <% if (credentials && credentials.length > 0) { %>
+
+    <div class="row g-4">
+      <% credentials.forEach(function(c) { %>
+
+        <div class="col-md-6">
+          <div class="card shadow-lg border-0 credential-card">
+
+            <div class="card-body p-4">
+
+              <!-- Credential Title -->
+              <h4 class="fw-bold text-primary mb-2">
+                <i class="bi bi-mortarboard-fill"></i>
+                <%= c.credential.title %>
+              </h4>
+
+              <!-- Issuer -->
+              <p class="mb-1">
+                <strong>Issuer:</strong> <%= c.credential.issuer %>
+              </p>
+
+              <!-- Issued On -->
+              <p class="mb-1">
+                <strong>Issued On:</strong> <%= c.credential.issuedOn %>
+              </p>
+
+              <!-- Valid Till -->
+              <p class="mb-1">
+                <strong>Valid Till:</strong> <%= c.credential.validTill %>
+              </p>
+
+              <hr>
+
+              <!-- Blockchain Hash -->
+              <p class="fw-semibold mb-1">Blockchain Hash:</p>
+              <div class="hash-box mb-2">
+                <code><%= c.hash %></code>
+              </div>
+
+              <!-- Status Badge -->
+              <%
+                let status = "Active";
+                let badgeColor = "success";
+
+                if (c.credential.validTill && c.credential.validTill.toLowerCase() === "lifetime") {
+                  status = "Lifetime";
+                  badgeColor = "primary";
+                }
+              %>
+
+              <span class="badge bg-<%= badgeColor %> px-3 py-2">
+                <i class="bi bi-check-circle-fill"></i> <%= status %>
+              </span>
+
+            </div>
           </div>
         </div>
-      </div>
-    <% }) %>
-  </div>
-<% } else { %>
-  <div class="alert alert-warning">No credentials yet. Ask an issuer to create one from the Issuer Portal.</div>
-<% } %>
+
+      <% }) %>
+    </div>
+
+  <% } else { %>
+
+    <div class="alert alert-warning shadow-sm fs-5 mt-4">
+      <i class="bi bi-exclamation-circle"></i>
+      No credentials found in your wallet. Ask the Issuer to issue one.
+    </div>
+
+  <% } %>
+
+</div>
+
+<!-- Custom Styles -->
+<style>
+  .credential-card {
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .credential-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  .hash-box {
+    background: #f8f9fa;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+    font-size: 0.9rem;
+    word-break: break-all;
+  }
+</style>
 
 <%- include('partials/footer') %>

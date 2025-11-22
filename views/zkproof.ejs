@@ -1,26 +1,100 @@
 <%- include('partials/header') %>
 
-<h2>ZKP (Selective Disclosure) Demo</h2>
-<p>This is a UI-level demo that simulates selective disclosure without revealing full credential details.</p>
-
-<div class="card p-3">
-  <p><strong>Scenario:</strong> Employer only wants to know whether candidate has a B.Tech degree and is older than 18.</p>
-  <p><strong>Action:</strong> Student clicks <em>Show Proof</em> — the system reveals boolean proofs only.</p>
-
-  <div class="mt-3">
-    <button id="showProof" class="btn btn-primary">Show Proof</button>
-  </div>
-
-  <div id="proofArea" class="mt-3" style="display:none;">
-    <div class="alert alert-success"><strong>Degree Verified:</strong> true</div>
-    <div class="alert alert-success"><strong>Age &gt;= 18:</strong> true</div>
-    <div class="alert alert-info">Note: No marks, university ID or full certificate image revealed.</div>
+<!-- Header Section -->
+<div class="py-4 mb-4 text-white shadow" style="background: linear-gradient(135deg, #42275a, #734b6d);">
+  <div class="container">
+    <h2 class="fw-bold mb-0"><i class="bi bi-eye-slash-fill"></i> Zero-Knowledge Proof Demo</h2>
+    <p class="mb-0 text-light">Selective disclosure without revealing sensitive details</p>
   </div>
 </div>
 
+<div class="container mb-5">
+
+  <div class="card shadow-lg border-0 zkp-card">
+    <div class="card-body p-4">
+
+      <h4 class="fw-bold text-primary">
+        <i class="bi bi-shield-lock"></i> Scenario Overview
+      </h4>
+      <p class="mt-2 fs-5">
+        An employer wants to verify two things about a student:
+      </p>
+
+      <ul class="fs-5">
+        <li>The student has a <strong>B.Tech degree</strong></li>
+        <li>The student is <strong>18+ years old</strong></li>
+      </ul>
+
+      <p class="mt-3 text-muted">
+        With Zero-Knowledge Proofs, the student can prove these conditions <strong>without revealing full certificate, marksheet, university ID, or DOB</strong>.
+      </p>
+
+      <!-- Action Button -->
+      <div class="text-center mt-4">
+        <button id="showProof" class="btn btn-primary btn-lg px-4 shadow proof-btn">
+          <i class="bi bi-magic"></i> Show Zero-Knowledge Proof
+        </button>
+      </div>
+
+      <!-- Proof Section -->
+      <div id="proofArea" class="mt-4" style="display:none;">
+
+        <div class="alert alert-success proof-box fade-in">
+          <strong><i class="bi bi-patch-check-fill"></i> Degree Verified:</strong> true
+        </div>
+
+        <div class="alert alert-success proof-box fade-in" style="animation-delay: 0.2s;">
+          <strong><i class="bi bi-patch-check-fill"></i> Age ≥ 18 :</strong> true
+        </div>
+
+        <div class="alert alert-info proof-box fade-in" style="animation-delay: 0.4s;">
+          <i class="bi bi-info-circle"></i> Sensitive data hidden — Proof verified without revealing personal details.
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- Custom Styling -->
+<style>
+  .zkp-card {
+    border-radius: 15px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+  }
+
+  .proof-btn {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .proof-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0,0,0,0.2);
+  }
+
+  .proof-box {
+    font-size: 1.1rem;
+    border-radius: 10px;
+  }
+
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 0.6s forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
 <script>
   document.getElementById('showProof').addEventListener('click', () => {
-    document.getElementById('proofArea').style.display = 'block';
+    const proof = document.getElementById('proofArea');
+    proof.style.display = 'block';
   });
 </script>
 
