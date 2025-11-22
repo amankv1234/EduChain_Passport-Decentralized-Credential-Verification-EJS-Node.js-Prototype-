@@ -1,0 +1,26 @@
+<%- include('partials/header') %>
+
+<h2>Student Wallet</h2>
+<p>All credentials (demo list from simulated chain)</p>
+
+<% if (credentials && credentials.length > 0) { %>
+  <div class="row">
+    <% credentials.forEach(function(c) { %>
+      <div class="col-md-6">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title"><%= c.credential.title %></h5>
+            <p class="card-text"><strong>Issuer:</strong> <%= c.credential.issuer %></p>
+            <p class="card-text"><strong>Issued On:</strong> <%= c.credential.issuedOn %></p>
+            <p class="card-text"><strong>Valid Till:</strong> <%= c.credential.validTill %></p>
+            <p class="card-text"><small class="text-muted">Hash: <code style="word-break: break-word;"><%= c.hash %></code></small></p>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+<% } else { %>
+  <div class="alert alert-warning">No credentials yet. Ask an issuer to create one from the Issuer Portal.</div>
+<% } %>
+
+<%- include('partials/footer') %>

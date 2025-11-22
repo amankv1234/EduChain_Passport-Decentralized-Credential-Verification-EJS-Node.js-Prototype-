@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+
+<h2>Verify Credential</h2>
+
+<form method="POST" action="/verify" class="row g-3 mb-3">
+  <div class="col-md-8">
+    <input type="text" name="hash" class="form-control" placeholder="Paste credential hash here" />
+  </div>
+  <div class="col-md-4">
+    <button class="btn btn-success">Verify</button>
+  </div>
+</form>
+
+<% if (result) { %>
+  <% if (result.error) { %>
+    <div class="alert alert-warning"><%= result.error %></div>
+  <% } else if (result.verified) { %>
+    <div class="alert alert-success">
+      <h5>Verified ✔</h5>
+      <p><strong>Student ID:</strong> <%= result.record.studentId %></p>
+      <p><strong>Credential:</strong> <%= result.record.credential.title %></p>
+      <p><strong>Issuer:</strong> <%= result.record.credential.issuer %></p>
+      <p><strong>Issued On:</strong> <%= result.record.credential.issuedOn %></p>
+      <p><small class="text-muted">Hash: <code style="word-break: break-word;"><%= result.record.hash %></code></small></p>
+    </div>
+  <% } else { %>
+    <div class="alert alert-danger">Not Verified ✖ — No record found with this hash.</div>
+  <% } %>
+<% } %>
+
+<%- include('partials/footer') %>

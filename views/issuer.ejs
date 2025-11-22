@@ -1,0 +1,40 @@
+<%- include('partials/header') %>
+
+<h2>Issuer Portal</h2>
+
+<% if (message) { %>
+  <div class="alert alert-info"><%= message %></div>
+<% } %>
+
+<form method="POST" action="/issuer/issue" class="row g-3">
+  <div class="col-md-4">
+    <label class="form-label">Student ID</label>
+    <input type="text" name="studentId" class="form-control" placeholder="e.g., STU1001" required>
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label">Credential Title</label>
+    <input type="text" name="title" class="form-control" placeholder="e.g., B.Tech in CSE" required>
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label">Issuer Name</label>
+    <input type="text" name="issuerName" class="form-control" placeholder="e.g., Rajkiya Engineering College" required>
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label">Issued On</label>
+    <input type="date" name="issuedOn" class="form-control">
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label">Valid Till</label>
+    <input type="text" name="validTill" class="form-control" placeholder="e.g., Lifetime or 2025-12-01">
+  </div>
+
+  <div class="col-12 mt-2">
+    <button class="btn btn-primary">Issue Credential</button>
+  </div>
+</form>
+
+<%- include('partials/footer') %>

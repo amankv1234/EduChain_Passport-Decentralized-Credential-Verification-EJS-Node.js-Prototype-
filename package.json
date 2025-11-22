@@ -1,0 +1,21 @@
+{
+  "name": "educhain-passport",
+  "version": "1.0.0",
+  "description": "EduChain Passport - decentralized & privacy-preserving skill credentials (EJS prototype)",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Aman",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "ejs": "^3.1.10",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

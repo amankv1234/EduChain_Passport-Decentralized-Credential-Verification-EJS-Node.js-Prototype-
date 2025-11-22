@@ -1,0 +1,20 @@
+[
+  {
+    "studentId": "STU1001",
+    "credential": {
+      "title": "B.Tech in CSE",
+      "issuer": "Rajkiya Engineering College",
+      "issuedOn": "2025-05-30",
+      "validTill": "Lifetime"
+    }
+  },
+  {
+    "studentId": "STU1002",
+    "credential": {
+      "title": "AWS Cloud Foundation",
+      "issuer": "Coursera",
+      "issuedOn": "2024-12-01",
+      "validTill": "2025-12-01"
+    }
+  }
+]

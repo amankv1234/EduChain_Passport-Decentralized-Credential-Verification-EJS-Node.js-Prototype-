@@ -1,0 +1,31 @@
+<%- include('partials/header') %>
+
+<div class="row">
+  <div class="col-md-8">
+    <h1>Welcome to EduChain Passport</h1>
+    <p class="lead">Decentralized & privacy-preserving credential verification prototype.</p>
+
+    <h5>Quick actions</h5>
+    <ul>
+      <li><a href="/issuer">Issuer Portal</a> — Issue new credentials (demo)</li>
+      <li><a href="/wallet">Student Wallet</a> — View credentials</li>
+      <li><a href="/verify">Verifier</a> — Verify credential hash</li>
+    </ul>
+
+    <hr>
+    <h5>How this prototype works (simple)</h5>
+    <ol>
+      <li>Issuer issues credential → server creates credential record + hash (simulated blockchain)</li>
+      <li>Student views wallet → sees issued credentials</li>
+      <li>Employer verifies by entering hash → server checks simulated chain</li>
+    </ol>
+  </div>
+  <div class="col-md-4">
+    <div class="card p-3">
+      <h6>Pro tip for demo</h6>
+      <p>After issuing a credential note down the hash and paste it into Verify page to demo verification.</p>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') %>
