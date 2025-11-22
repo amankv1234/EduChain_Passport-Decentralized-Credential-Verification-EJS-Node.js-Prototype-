@@ -7,60 +7,80 @@
   <!-- Bootstrap CDN for quick styling -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
+  <!-- added colorful button styles -->
+  <style>
+    /* NAVBAR: full-width dark gradient for strong contrast */
+    .navbar-custom {
+      background: linear-gradient(135deg, #0f172a 0%, #0f3d91 50%, #1363df 100%);
+      border-bottom: 4px solid rgba(255,255,255,0.03);
+    }
+    .navbar-custom .navbar-brand,
+    .navbar-custom .navbar-nav .nav-link {
+      color: #ffffff !important;
+      text-shadow: 0 1px 0 rgba(0,0,0,0.25);
+    }
+    .navbar-custom .navbar-toggler {
+      border-color: rgba(255,255,255,0.12);
+    }
+
+    .btn-nav {
+      display: inline-block;
+      padding: 8px 14px;
+      margin-left: 10px;
+      border-radius: 10px;
+      color: #fff !important;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .btn-gradient-1 { background: linear-gradient(90deg,#ff6a88 0%,#ff9a9e 100%); }
+    .btn-gradient-2 { background: linear-gradient(90deg,#6a11cb 0%,#2575fc 100%); }
+    .btn-gradient-3 { background: linear-gradient(90deg,#34e89e 0%,#0f3443 100%); }
+    .btn-gradient-4 { background: linear-gradient(90deg,#f7971e 0%,#ffd200 100%); }
+
+    .btn-nav:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 14px 36px rgba(2,6,23,0.45);
+      opacity: 0.98;
+    }
+
+    /* ensure nav-link appearance remains button-like while preserving accessibility */
+    .nav .btn-nav { line-height: 1; }
+
+    @media (max-width: 991px) {
+      .navbar-collapse { background: linear-gradient(180deg, rgba(15,23,42,0.98), rgba(19,99,223,0.95)); padding: 12px; border-radius: 8px; }
+      .nav .btn-nav {
+        display: block;
+        width: 100%;
+        margin: 8px 0;
+        margin-left: 0;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark mb-4" 
-     style="background: linear-gradient(135deg, #1e3c72, #2a5298);">
-
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom mb-4">
   <div class="container">
-    <a class="navbar-brand" href="/">EduChain Passport</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto">
+    <a class="navbar-brand fw-bold" href="/">EduChain Passport</a>
 
-  <li class="nav-item">
-    <a class="nav-link nav-btn" href="/wallet">Wallet</a>
-  </li>
+    <!-- added toggler for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+      aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-  <li class="nav-item">
-    <a class="nav-link nav-btn" href="/issuer">Issuer</a>
-  </li>
-
-  <li class="nav-item">
-    <a class="nav-link nav-btn" href="/verify">Verify</a>
-  </li>
-
-  <li class="nav-item">
-    <a class="nav-link nav-btn" href="/zkproof">ZKP Demo</a>
-  </li>
-
-</ul>
-
-<style>
-  .nav-btn {
-    background: #0d6efd;           /* Blue button */
-    color: #fff !important;        /* White bold text */
-    font-weight: 600;              /* Bold */
-    padding: 8px 16px;
-    border-radius: 8px;            /* Rounded corners */
-    margin-left: 10px;
-    transition: all 0.3s ease;
-  }
-
-  .nav-btn:hover {
-    background: #084298;           /* Darker blue on hover */
-    transform: translateY(-3px);   /* Lift animation */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  }
-
-  /* Mobile Responsive */
-  @media (max-width: 991px) {
-    .nav-btn {
-      display: block;
-      margin: 8px 0;
-    }
-  }
-</style>
-
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav ms-auto nav">
+        <!-- changed plain links to colorful button-like links -->
+        <li class="nav-item"><a class="nav-link btn-nav btn-gradient-2" href="/wallet">Wallet</a></li>
+        <li class="nav-item"><a class="nav-link btn-nav btn-gradient-1" href="/issuer">Issuer</a></li>
+        <li class="nav-item"><a class="nav-link btn-nav btn-gradient-3" href="/verify">Verify</a></li>
+        <li class="nav-item"><a class="nav-link btn-nav btn-gradient-4" href="/zkproof">ZKP Demo</a></li>
+      </ul>
     </div>
   </div>
 </nav>

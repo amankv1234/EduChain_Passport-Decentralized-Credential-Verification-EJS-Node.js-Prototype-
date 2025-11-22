@@ -1,56 +1,79 @@
 <%- include('partials/header') %>
 
-<!-- Hero Section -->
-<div class="p-5 mb-4 bg-light rounded-3 shadow-sm" style="background: linear-gradient(135deg, #4b79a1, #283e51); color: white;">
-  <div class="container-fluid py-5">
-    <h1 class="display-5 fw-bold">EduChain Passport</h1>
-    <p class="col-md-8 fs-5 mt-3">
-      A decentralized & privacy-preserving platform for issuing, storing, and verifying academic credentials.
-      Built using Web3-inspired design and modern cryptographic concepts.
-    </p>
-    <a href="/wallet" class="btn btn-warning btn-lg px-4 mt-3 fw-bold shadow">View Student Wallet</a>
+<!-- Updated Hero Section: modern full-width gradient + glass card -->
+<div class="hero-section py-6">
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <div class="row align-items-center">
+      <div class="col-lg-7 text-white">
+        <h1 class="display-4 fw-bold hero-title">EduChain Passport</h1>
+        <p class="lead hero-sub">
+          Decentralized, privacy-first academic credentials — issue, store and verify with modern cryptography and web3 concepts.
+        </p>
+        <div class="mt-4">
+          <a href="/wallet" class="btn btn-cta btn-primary btn-lg me-2">Open Student Wallet</a>
+          <a href="/verify" class="btn btn-cta btn-outline btn-lg">Verify Credential</a>
+        </div>
+      </div>
+      <div class="col-lg-5 d-none d-lg-block">
+        <!-- subtle illustrative card -->
+        <div class="glass-card shadow-lg p-4">
+          <div class="d-flex align-items-center mb-3">
+            <div class="icon-circle icon-gradient-2 me-3"><i class="bi bi-wallet2"></i></div>
+            <div>
+              <h6 class="mb-0">Secure Wallet</h6>
+              <small class="text-muted">Store tamper-proof credentials</small>
+            </div>
+          </div>
+          <div class="d-flex align-items-center">
+            <div class="icon-circle icon-gradient-3 me-3"><i class="bi bi-shield-check"></i></div>
+            <div>
+              <h6 class="mb-0">Instant Verification</h6>
+              <small class="text-muted">Fast cryptographic checks</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- Quick Actions Section -->
+<!-- Updated Quick Actions Section: modern card grid -->
 <div class="container my-5">
   <h2 class="text-center mb-4 fw-bold">Quick Actions</h2>
 
   <div class="row g-4">
-    <!-- Issuer Portal -->
-    <div class="col-md-4">
-      <a href="/issuer" class="text-decoration-none text-dark">
-        <div class="card h-100 shadow action-card hover-up">
+    <div class="col-sm-6 col-md-4">
+      <a href="/issuer" class="text-decoration-none">
+        <div class="card card-modern h-100">
           <div class="card-body text-center">
-            <i class="bi bi-building-lock" style="font-size: 40px; color: #0d6efd;"></i>
-            <h4 class="mt-3">Issuer Portal</h4>
-            <p>Issue new tamper-proof credentials to students.</p>
+            <div class="icon-circle icon-gradient-1 mb-3"><i class="bi bi-building-lock"></i></div>
+            <h5 class="card-title">Issuer Portal</h5>
+            <p class="card-text text-muted">Issue tamper-proof credentials with ease.</p>
           </div>
         </div>
       </a>
     </div>
 
-    <!-- Student Wallet -->
-    <div class="col-md-4">
-      <a href="/wallet" class="text-decoration-none text-dark">
-        <div class="card h-100 shadow action-card hover-up">
+    <div class="col-sm-6 col-md-4">
+      <a href="/wallet" class="text-decoration-none">
+        <div class="card card-modern h-100">
           <div class="card-body text-center">
-            <i class="bi bi-wallet2" style="font-size: 40px; color: #198754;"></i>
-            <h4 class="mt-3">Student Wallet</h4>
-            <p>View all issued credentials stored in your digital identity wallet.</p>
+            <div class="icon-circle icon-gradient-2 mb-3"><i class="bi bi-wallet2"></i></div>
+            <h5 class="card-title">Student Wallet</h5>
+            <p class="card-text text-muted">Manage and selectively share credentials.</p>
           </div>
         </div>
       </a>
     </div>
 
-    <!-- Verifier Portal -->
-    <div class="col-md-4">
-      <a href="/verify" class="text-decoration-none text-dark">
-        <div class="card h-100 shadow action-card hover-up">
+    <div class="col-sm-6 col-md-4">
+      <a href="/verify" class="text-decoration-none">
+        <div class="card card-modern h-100">
           <div class="card-body text-center">
-            <i class="bi bi-shield-check" style="font-size: 40px; color: #dc3545;"></i>
-            <h4 class="mt-3">Verifier</h4>
-            <p>Verify credentials using cryptographic hash lookup.</p>
+            <div class="icon-circle icon-gradient-4 mb-3"><i class="bi bi-shield-check"></i></div>
+            <h5 class="card-title">Verifier</h5>
+            <p class="card-text text-muted">Quick cryptographic verification for employers.</p>
           </div>
         </div>
       </a>
@@ -99,13 +122,65 @@
 </div>
 
 <style>
-  .hover-up {
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  /* modern hero and cards styles (replace previous styles) */
+  .hero-section { position: relative; overflow: hidden; padding-top: 64px; padding-bottom: 48px; }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 40%, #7b2ff7 100%);
+    transform: skewY(-3deg);
+    transform-origin: top left;
+    opacity: 0.95;
+    z-index: 0;
   }
-  .hover-up:hover {
-    transform: translateY(-6px);
-    box-shadow: 0px 10px 20px rgba(0,0,0,0.15);
+  .hero-content { position: relative; z-index: 2; }
+  .hero-title { letter-spacing: -0.5px; }
+  .hero-sub { max-width: 58ch; color: rgba(255,255,255,0.92); }
+
+  .btn-cta { border-radius: 12px; padding: 10px 18px; font-weight: 700; }
+  .btn-cta.btn-primary {
+    background: linear-gradient(90deg,#6a11cb 0%,#2575fc 100%); border: none; color: #fff;
+    box-shadow: 0 10px 30px rgba(37,117,252,0.18);
   }
+  .btn-cta.btn-outline {
+    background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.12);
+  }
+  .btn-cta:hover { transform: translateY(-3px); }
+
+  .glass-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+    color: #fff;
+  }
+
+  .card-modern {
+    border: none;
+    border-radius: 12px;
+    transition: transform .22s cubic-bezier(.2,.9,.3,1), box-shadow .22s;
+    box-shadow: 0 6px 18px rgba(6,20,43,0.12);
+    overflow: hidden;
+  }
+  .card-modern:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(6,20,43,0.16); }
+
+  .icon-circle {
+    width: 64px; height: 64px; display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 14px; color: #fff; font-size: 24px;
+    box-shadow: 0 8px 20px rgba(2,6,23,0.18);
+  }
+  .icon-gradient-1 { background: linear-gradient(90deg,#ff6a88,#ff9a9e); }
+  .icon-gradient-2 { background: linear-gradient(90deg,#6a11cb,#2575fc); }
+  .icon-gradient-3 { background: linear-gradient(90deg,#34e89e,#0f3443); }
+  .icon-gradient-4 { background: linear-gradient(90deg,#f7971e,#ffd200); }
+
+  /* responsive tweaks */
+  @media (max-width: 767px) {
+    .hero-sub { max-width: 100%; }
+    .glass-card { display: none; } /* simplify hero on small screens */
+    .hero-section { padding-top: 36px; padding-bottom: 36px; }
+  }
+
+  /* small utility */
+  .text-muted { color: rgba(255,255,255,0.75) !important; }
 </style>
 
 <%- include('partials/footer') %>
